@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.pgsqldemo.dao.UserDao">
+
+    <insert id="userInsert" parameterType="com.example.pgsqldemo.entity.UserInfo">
+        INSERT into prom_user
+        ( ACTIVITY_ID, IMEI, lenovoId, lenovoName, phone, email)
+        VALUES
+        (#{activityId}, #{imei},#{lenovoId},#{lenovoName},#{phone},#{email})
+    </insert>
+
+    <select id="queryById" resultType="com.example.pgsqldemo.entity.UserInfo">
+        SELECT ID id,ACTIVITY_ID activityId,IMEI imei,lenovoId lenovoId,lenovoName lenovoName,
+        phone phone,email email
+        FROM prom_user
+        WHERE id=#{id}
+    </select>
+
+</mapper>
