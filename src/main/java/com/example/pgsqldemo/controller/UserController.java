@@ -2,6 +2,7 @@ package com.example.pgsqldemo.controller;
 
 import com.example.pgsqldemo.entity.UserInfo;
 import com.example.pgsqldemo.service.IUserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/user")
+@Slf4j
 public class UserController {
     @Autowired
     private IUserService userService;
@@ -30,6 +32,7 @@ public class UserController {
 
     @GetMapping("/queryById")
     public UserInfo queryById(Long id) {
+        log.info("queryById", id);
         return userService.queryById(id);
     }
 }
